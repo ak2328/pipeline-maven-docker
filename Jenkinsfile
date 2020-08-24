@@ -3,8 +3,7 @@ pipeline {
      agent any
 
      environment {
-        PASS = credentials('registry-password') 
-        IMAGE = maven-project
+        PASS = credentials('registry-password')
         TAG = 10
     }
  
