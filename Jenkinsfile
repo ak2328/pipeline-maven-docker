@@ -4,6 +4,8 @@ pipeline {
 
      environment {
         PASS = credentials('registry-password') 
+        IMAGE = maven-project
+        TAG = 10
     }
  
 
@@ -52,7 +54,7 @@ pipeline {
 
              steps {
 
-                 sh './jenkins/push/push.py'
+                 sh './jenkins/push/push.sh'
 
              }
 
