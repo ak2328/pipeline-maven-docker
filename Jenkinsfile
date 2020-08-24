@@ -14,8 +14,8 @@ pipeline {
 
              steps {
                    sh '''
-                       ./jenkins/build/mvn.sh mvn -B -DskipTests clean package 
-                       ./jenkins/build/build.sh
+                       bash ./jenkins/build/mvn.sh mvn -B -DskipTests clean package 
+                       bash ./jenkins/build/build.sh
                        '''
                        
                        // cd .\jenkins\build\ | docker-compose -f docker-compose-build.yml build --no-cache
@@ -35,7 +35,7 @@ pipeline {
 
              steps {
 
-                 sh './jenkins/test/mvn.sh mvn test'
+                 sh 'bash ./jenkins/test/mvn.sh mvn test'
 
              }
 
@@ -53,7 +53,7 @@ pipeline {
 
              steps {
 
-                 sh './jenkins/push/push.sh'
+                 sh 'bash ./jenkins/push/push.sh'
 
              }
 
@@ -65,7 +65,7 @@ pipeline {
          {
              steps {
 
-                 echo './jenkins/deploy/deploy.sh'
+                 echo 'bash ./jenkins/deploy/deploy.sh'
              }
          }
 
